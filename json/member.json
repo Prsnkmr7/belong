@@ -1,0 +1,131 @@
+{
+    "memberDetails": [{
+        "id":"member1",
+        "name": "Kilgore Trout",
+        "company": "Breakfast of Champions",
+        "status": "Closed",
+        "lastUpdated": "9/12/2017",
+        "notes":"The universe is a big place, perhaps the biggest "
+    },
+    {
+        "id":"member2",
+        "name": "Kilgore Trout",
+        "company": "Breakfast of Champions",
+        "status": "Active",
+        "lastUpdated": "9/12/2016",
+        "notes":"A Brief History Of Creation"
+    },
+    {
+        "id":"member3",
+        "name": "Kilgore Trout",
+        "company": "Breakfast of Champions",
+        "status": "Idle",
+        "lastUpdated": "5/12/2016",
+        "notes":"Enlightenment Is Not Just One State"
+    },
+    {
+        "id":"member4",
+        "name": "Marc Reed",
+        "company": "Breakfast of Champions",
+        "status": "Idle",
+        "lastUpdated": "5/12/2016",
+        "notes":"The Idea Of God Is Not Henceforth Relevant"
+    },
+    {
+        "id":"member5",
+        "name": "Wayne Malone",
+        "company": "Breakfast of Champions",
+        "status": "Idle",
+        "lastUpdated": "5/12/2016",
+        "notes":"Enlightenment Is Not Just One State"
+    },
+    {
+        "id":"member6",
+        "name": "Sylvia Holmes",
+        "company": "Breakfast of Champions",
+        "status": "Idle",
+        "lastUpdated": "5/12/2016",
+        "notes":"The Idea Of God Is Not Henceforth Relevant"
+    },
+    {
+        "id":"member7",
+        "name": "Eugenia King",
+        "company": "Breakfast of Champions",
+        "status": "Idle",
+        "lastUpdated": "5/12/2016",
+        "notes":"Enlightenment Is Not Just One State"
+    },
+    {
+        "id":"member8",
+        "name": "Marie Schneider",
+        "company": "Breakfast of Champions",
+        "status": "Idle",
+        "lastUpdated": "5/12/2016",
+        "notes":"The Idea Of God Is Not Henceforth Relevant"
+    },
+    {
+        "id":"member9",
+        "name": "Phoebe Frazier",
+        "company": "Breakfast of Champions",
+        "status": "Idle",
+        "lastUpdated": "5/12/2016",
+        "notes":"Enlightenment Is Not Just One State"
+    },
+    {
+        "id":"member10",
+        "name": "Lou Wolfe",
+        "company": "Breakfast of Champions",
+        "status": "Idle",
+        "lastUpdated": "5/12/2016",
+        "notes":"The Idea Of God Is Not Henceforth Relevant"
+    },
+    {
+        "id":"member11",
+        "name": "Emilie Young",
+        "company": "Breakfast of Champions",
+        "status": "Idle",
+        "lastUpdated": "5/12/2016",
+        "notes":"Enlightenment Is Not Just One State"
+    },
+    {
+        "id":"member12",
+        "name": "Prasun Kumar",
+        "company": "Breakfast of Champions",
+        "status": "Idle",
+        "lastUpdated": "5/12/2016",
+        "notes":"The Idea Of God Is Not Henceforth Relevant"
+    },
+    {
+        "id":"member13",
+        "name": "Vivek Razdan",
+        "company": "Breakfast of Champions",
+        "status": "Idle",
+        "lastUpdated": "5/12/2016",
+        "notes":"A Brief History Of Creation"
+    },
+    {
+        "id":"member14",
+        "name": "Virat Kohli",
+        "company": "Breakfast of Champions",
+        "status": "Idle",
+        "lastUpdated": "5/12/2016",
+        "notes":"Enlightenment Is Not Just One State"
+    },
+    {
+        "id":"member15",
+        "name": "Sachin Tendulkar",
+        "company": "Breakfast of Champions",
+        "status": "Idle",
+        "lastUpdated": "5/12/2016",
+        "notes":"A Brief History Of Creation"
+    },
+    {
+        "id":"member16",
+        "name": "Rahul Dravid",
+        "company": "Breakfast of Champions",
+        "status": "Idle",
+        "lastUpdated": "5/12/2016",
+        "notes":"The Idea Of God Is Not Henceforth Relevant"
+    }]
+    
+}

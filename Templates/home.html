@@ -1,0 +1,209 @@
+<div ng-controller="homeController" ng-click="removeDefault()">
+    <section class="full-width-grid">
+        <div class="account-table common-pad">
+            <h1>Team Members</h1>
+            <button class="add-mem" ng-click="togglePopup(true)"><span class="left">Add Member</span> <i class="material-icons left">
+                    add
+                </i></button>
+        </div>
+        <div class="selection-wrapper">
+            <div class="account-table clearfix">
+                <div class="left">
+                    <div class="rel left">
+                        <div class="company-container pointer" ng-click="showDropDown('showCompany');$event.stopPropagation();
+                        ">
+                            <span class="left">Company</span>
+                            <span class="left selected-number">({{numberOfItemSelected}})</span>
+                            <i class="material-icons left">
+                                keyboard_arrow_down
+                            </i>
+                        </div>
+                        <ul class="selected-container" ng-if="showValueDropdown == 'showCompany'" ng-click="$event.stopPropagation()">
+                            <li class="clearfix">
+                                <input type='checkbox' name='check' id='check' ng-click="toggleAll()" ng-model=allChecked>
+                                <label for='check' class="pointer left"></label>
+                                <span class="left">Select All</span>
+                            </li>
+                            <li ng-repeat="list in listItems" class="clearfix">
+                                <input type='checkbox' name={{list.id}} id={{list.id}} ng-model=list.selected ng-click="ChnageSelected(list)"/>
+                                <label for={{list.id}} class="pointer left"></label>
+                                <span class="left">{{list.name}}</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="rel left">
+                        <div class="status-container company-container pointer" ng-click="showDropDown('showStatus');$event.stopPropagation()">
+                            <span class="left">Status</span>
+                            <i class="material-icons left">
+                                keyboard_arrow_down
+                            </i>
+                        </div>
+                        <ul class="selected-container status-wrapper" ng-if="showValueDropdown == 'showStatus'" ng-click="$event.stopPropagation()">
+                            <li class="clearfix">
+                                <input type='checkbox' name='idle' id='idle' />
+                                <label for='idle' class="pointer left"></label>
+                                <span class="left">Idle</span>
+                            </li>
+                            <li class="clearfix">
+                                <input type='checkbox' name='active' id='active' />
+                                <label for='active' class="pointer left"></label>
+                                <span class="left">Active</span>
+                            </li>
+                            <li class="clearfix">
+                                <input type='checkbox' name='closed' id='closed' />
+                                <label for='closed' class="pointer left"></label>
+                                <span class="left">Closed</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="right pagination-container">
+                    <div class="viewing-container left">
+                        Viewing
+                        <span class="page-number">1-20</span>
+                        <span>of</span>
+                        <span class="page-number">36</span>
+                    </div>
+                    <div class="nav-container left">
+                        <i class="material-icons">
+                            arrow_left
+                        </i>
+                    </div>
+                    <div class="nav-container left">
+                        <i class="material-icons">
+                            arrow_right
+                        </i>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="content-wrapper">
+            <table class="account-table">
+                <thead>
+                    <tr class="grid-x account-table__head-row account-table__data-row">
+                        <th class="input-container"><input type='checkbox' name='check' id="check" ng-click="toggleAll()" ng-model=allChecked>
+                            <label for="check" class="pointer"></label></th>
+                        <th class="user-details"><span class="left" ng-class="{active: orderByField == 'name'}">Name</span>
+                            <i class="material-icons left" ng-click="sort(true,'name')" ng-if="!reverseSort || orderByField != 'name'">
+                                arrow_downward
+                            </i>
+                            <i class="material-icons left" ng-click="sort(false,'name')" ng-if="reverseSort && orderByField == 'name'">
+                                arrow_upward
+                            </i></th>
+                        <th class="company-details">
+                            <span class="left" ng-class="{active: orderByField == 'company'}">Company</span>
+                            <i class="material-icons left" ng-click="sort(true,'company')" ng-if="!reverseSort || orderByField != 'company'">
+                                arrow_downward
+                            </i>
+                            <i class="material-icons left" ng-click="sort(false,'company')" ng-if="reverseSort && orderByField == 'company'">
+                                arrow_upward
+                            </i>
+                        </th>
+                        <th class="user-details">
+                            <span class="left" ng-class="{active: orderByField == 'status'}">Status</span>
+                            <i class="material-icons left" ng-click="sort(true,'status')" ng-if="!reverseSort || orderByField != 'status'">
+                                keyboard_arrow_down
+                            </i>
+                            <i class="material-icons left" ng-click="sort(false,'status')" ng-if="reverseSort && orderByField == 'status'">
+                                keyboard_arrow_up
+                            </i>
+                        </th>
+                        <th class="user-details">
+                            <span class="left" ng-class="{active: orderByField == 'lastUpdated'}">Last Updated</span>
+                            <i class="material-icons left" ng-click="sort(true,'lastUpdated')" ng-if="!reverseSort || orderByField != 'lastUpdated'">
+                                keyboard_arrow_down
+                            </i>
+                            <i class="material-icons left" ng-click="sort(false,'lastUpdated')" ng-if="reverseSort && orderByField == 'lastUpdated'">
+                                keyboard_arrow_up
+                            </i>
+                        </th>
+                        <th class="notes-details">Notes</th>
+                        <th class="input-container"></th>
+                    </tr>
+                </thead>
+                <tbody class="account-table__body">
+                    <tr class="account-table__data-row grid-x list-table" ng-repeat="list in listItems |orderBy:orderByField:reverseSort">
+                        <td class="account-table__date input-container"><input type='checkbox' name={{list.id}} id={{list.id}} ng-model=list.selected ng-click="ChnageSelected(list)" >
+                            <label for={{list.id}} class="pointer"></label></td>
+                        <td class="account-table__date user-details">{{list.name}}</td>
+                        <td class="account-table__date company-details">{{list.company}}</td>
+                        <td class="account-table__date user-details">{{list.status}}</td>
+                        <td class="account-table__date user-details">{{list.lastUpdated}}</td>
+                        <td class="account-table__date notes-details">{{list.notes}}</td>
+                        <td class="account-table__date input-container rel"><i class="material-icons" ng-click="showEditDel($index,list.id);$event.stopPropagation()">
+                                more_vert
+                            </i>
+                            <ul class="edit-del-container" ng-if="showdata == $index && togglehide" ng-click="$event.stopPropagation()">
+                                <li class="clearfix"><i class="material-icons left">
+                                        edit
+                                    </i><span class="left"> Edit</span></li>
+                                <li class="clearfix" ng-click="delete(list)"><i class="material-icons left">
+                                        delete
+                                    </i> <span class="left">Delete</span></li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <div class="white-overlay" ng-if="addMember" >
+        <div class="overlay-title-wrapr">
+            <div class="overlay-title">Add Team Member Form</div>
+        </div>
+        <div class="white-overlay-back">
+            <i class="material-icons" ng-click="togglePopup(false)">
+                close
+            </i>
+            <form name="form" ng-submit="submitForm(form.$valid)" novalidate>
+                <div class="modal-body">
+                    <!-- NAME -->
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" name="name" class="form-control" ng-model="user.name" required>
+                        <p ng-show="form.name.$error.required" class="help-block">You
+                            name is required.</p>
+                    </div>
+
+                    <!-- Company -->
+                    <div class="form-group">
+                        <label>Company</label>
+                        <input type="text" name="company" class="form-control" ng-model="user.company" required>
+                        <p ng-show="form.company.$error.required"
+                            class="help-block">Enter
+                            a valid company.</p>
+                    </div>
+
+                    <!-- Status -->
+                    <div class="form-group rel select-box">
+                        <label>Status</label>
+                        <select id="client" name="service_id" ng-model="user.status">
+                            <option selected="selected" disabled="">Please Select</option>
+                            <option value="Close">Closed</option>
+                            <option value="Idle">Idle</option>
+                            <option value="Active">Active</option>
+                        </select>
+                        <i class="material-icons left">
+                            keyboard_arrow_down
+                        </i>
+                        <p ng-show="form.service_id.$error.required"
+                            class="help-block">Select a status.</p>
+                    </div>
+
+                    <!-- Note -->
+                    <div class="form-group">
+                        <label>Note</label>
+                        <textarea ng-model="user.note" name="note" rows="5" cols="35" id="note" required></textarea>
+                        <p ng-show="form.service_id.$error.required " class="help-block">Note
+                            is required</p>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn" ng-disabled="form.$invalid">Add member</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
